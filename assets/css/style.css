@@ -1,0 +1,96 @@
+* {
+	font-family:helvetica;
+}
+
+
+body {
+	background-image: url(../images/wallpaper.jpg);
+}
+
+p {
+	color:white;
+	text-align: -webkit-center;
+	font-size: x-large;
+	margin-top: 30px;
+	text-shadow: 0px 0px 20px black;
+}
+
+img {
+	
+box-shadow: 0px 0px 20px 10px rgb(24, 22, 23);
+	
+margin:auto;
+	
+	
+display:block;
+}
+
+h1#fillText {
+	font-size:60px;
+	font-weight: 900;
+	color: #fdf500;
+	text-shadow: -2px -1px 0px rgb(237, 1, 129);
+	margin:auto;
+	margin-bottom:15px;
+
+}
+
+#gifSpot {
+	background-color: rgba(8, 8, 8, 0.77);
+	padding:20px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 20px 0px black;
+
+}
+
+button#addButton {
+	color: black;
+	font-weight: 600;
+	display:block;
+	margin:auto;
+	margin-top: 15px;
+	border: none;
+	background-color: rgb(252, 242, 7);
+	box-shadow: -2px -1px 0px 1px #6b54a2;
+	
+}
+
+button#addButton:active {
+	transform: translateY(4px);
+}
+
+button.btn.btn-default.gifButton {
+	margin: 15px;
+	font-size: 30px;
+	border: none;
+	background-color: rgb(254, 247, 0);
+	box-shadow: -2px -1px 0px 1px #6b54a2;
+	font-weight: 600;
+}
+
+button.btn.btn-default.gifButton:hover {
+
+	background-color:#efe811
+}
+
+button.btn.btn-default.gifButton:active {
+	transform: translateY(4px);
+}
+label.col-2.col-form-label {
+	font-size:23px;
+	font-weight: 900;
+	color: black;
+	text-shadow: -2px -1px 0px rgb(251, 247, 0);
+}
+
+input#addTopicField {
+	
+box-shadow: 1px 0px 12px 0px black;
+}
+
+div.gifDiv.col-md-5 {
+	margin-left:50px;
+	margin-top: 25px;
+	
+}
+
