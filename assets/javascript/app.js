@@ -19,53 +19,55 @@ $(document).ready(function() {
 
 			$(".gifButton").on("click", function() {
 
-			$("#gifSpot").empty();
+				$("#gifSpot").empty();
 
-			var person = $(this).text();
-      		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-        	person + "&api_key=dc6zaTOxFJmzC&limit=10";
+				var person = $(this).text();
+      			var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+        		person + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-			$.ajax({
-        	 url: queryURL,
-        	  method: "GET"
-       	 	})
-       	 	.done(function(response) {
-       	 		//store results
-       	   		var results = response.data;
-       	  	 	//loop through results
-        	  	for (var i = 0; i < results.length; i++) {
+				$.ajax({
+        	 		url: queryURL,
+        	 		method: "GET"
+       	 		})
+       	 		.done(function(response) {
+       	 			//store results
+       	   			var results = response.data;
+       	   			console.log(results);
+       	  	 		
+       	  	 		//loop through results
+        	  		for (var i = 0; i < results.length; i++) {
 	
-        	    var gifDiv = $("<div>");
-        	    gifDiv.addClass('gifDiv col-md-5')
-        	    var rating = results[i].rating;
+        	    		var gifDiv = $("<div>");
 
-        	   	var p = $("<p>").text("Rating: " + rating);
+        	    		gifDiv.addClass('gifDiv col-md-5')
 
-        	    var personImage = $("<img>");
-        	    personImage.attr("src", results[i].images.fixed_height.url);
+        	    		var rating = results[i].rating;
 
-         	   gifDiv.prepend(p);
-        	    gifDiv.prepend(personImage);
+        	   			var p = $("<p>").text("Rating: " + rating);
 
-        	    $("#gifSpot").prepend(gifDiv);
-        	  }
-        	});
+        	    		var personImage = $("<img>");
+        	    		personImage.attr("src", results[i].images.fixed_height.url);
+        	    		personImage.attr({
+        	    			"data-still": results[i].images.fixed_height_still.url,
+        	    			"data-animate": results[i].images.fixed_height.url,
+        	    			"data-state": 'animate',
+        	    			"class": 'gif'
+        	    		});
 
+         	   			gifDiv.prepend(p);
+        	    		gifDiv.prepend(personImage);
 
-	});
+        	    		$("#gifSpot").prepend(gifDiv);
+        	  		};
+        		});
+			});
 	};
-
-	
-
-	
-
-	
 
 	generateButtons();
 
 
 		//add buttons
-		$("#addButton").on("click", function() {
+			$("#addButton").on("click", function() {
 
 			topics.push($("#addTopicField").val());
 
@@ -74,17 +76,26 @@ $(document).ready(function() {
 			$("#buttonDiv").empty();
 
 			generateButtons();
-			//var gifButton = $("<button>");
 
-			//gifButton.html($("#addTopicField").val())
-			//.addClass('btn btn-default gifButton');
-
-			//$("#addTopicField").val('');
-
-			//$("#buttonDiv").append(gifButton);
+			
 		});
 
-	
+			$(document).on("click", ".gif", function() {
+			
+					var state = $(this).attr('data-state');
+
+			console.log(state);
+				if (state === "still") {
+					console.log('test');
+           			 $(this).attr('src', $(this).data('animate'));
+           			 $(this).attr('data-state', 'animate');
+      			} else {
+             		$(this).attr('src', $(this).data('still'));
+             		$(this).attr('data-state', 'still');
+      			}
+			});
+			
+		
 
 
 });

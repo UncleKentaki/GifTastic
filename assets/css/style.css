@@ -8,11 +8,11 @@ body {
 }
 
 p {
-	color:white;
+	color: #fff101;
 	text-align: -webkit-center;
 	font-size: x-large;
 	margin-top: 30px;
-	text-shadow: 0px 0px 20px black;
+	text-shadow: -2px -1px 0px #6b54a2;
 }
 
 img {
